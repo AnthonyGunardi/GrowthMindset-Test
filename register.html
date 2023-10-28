@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Evolve Center</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/style-register.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+    <div class="col-sm-6">
+      <div class="logo_area pt-5 ps-5">
+         <a href="index.html">
+            <img class="logo" src="./assets/images/logo/logo.png" alt="image-not-found">
+         </a>
+      </div>
+   </div>
+		<h1>EVOLVE CENTER</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form id="loginForm" action="#" method="post">
+          <input class="text nama_peserta" id="nama_peserta" type="text" name="nama_peserta" placeholder="Nama Peserta" required>
+					<input class="text jabatan_peserta" id="jabatan_peserta" type="text" name="jabatan_peserta" placeholder="Jabatan Peserta" required>
+          <input class="text" id="nama_perusahaan" type="text" name="nama_perusahaan" placeholder="Nama Perusahaan" required>
+					<input class="text nomor_telp" id="nomor_telp" type="text" name="nomor_telp" placeholder="Nomor HP" required>
+					<input type="submit" value="NEXT">
+				</form>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© 2023 Central Improvement Academy. All rights reserved | Design by <a href="https://ciptainsanaktif.com/" target="_blank">CIA</a></p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    let nama_perusahaan = document.getElementById('nama_perusahaan');
+    let nama_peserta = document.getElementById('nama_peserta');
+    let jabatan_peserta = document.getElementById('jabatan_peserta');
+    let nomor_telp = document.getElementById('nomor_telp');
+    let loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      axios.post('https://anthonygunardi.com:5005/register', {
+        nama_perusahaan: nama_perusahaan.value,
+        jumlah_peserta: jumlah_peserta,
+        nama_peserta: nama_peserta.value,
+        jabatan_peserta: jabatan_peserta.value,
+        nomor_telp: nomor_telp.value
+      })
+      .then(result => {
+        window.location.replace('test.html')
+      })
+      .catch(err => console.log(err)) 
+    })
+
+  </script>
+</body>
+</html>

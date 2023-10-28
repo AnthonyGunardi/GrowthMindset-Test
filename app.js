@@ -47,10 +47,34 @@ function step() {
                 end.querySelector('span').textContent=`${output}%`;
                 if (output == finalScore) {
                     clearInterval(timer);
+                    axios.post('https://anthonygunardi.com:5005/register', {
+                        nama_perusahaan: nama_perusahaan.value,
+                        jumlah_peserta: jumlah_peserta,
+                        nama_peserta: nama_peserta.value,
+                        jabatan_peserta: jabatan_peserta.value,
+                        nomor_telp: nomor_telp.value
+                    })
+                    .then(result => {
+                        const attributes = {
+                            href: "detail.html",
+                            class: "btns"
+                        };
+                        const detailButton = document.createElement("a");
+                        setAttributes(detailButton, attributes);
+                        detailButton.innerHTML = "Details";
+                        document.getElementById("details").appendChild(detailButton);
+                    })
+                    .catch(err => console.log(err)) 
                 }else{
                     output++;
                 }
             },20)
         }
     }
+}
+
+function setAttributes(element, attributes) {
+    Object.keys(attributes).forEach(attr => {
+      element.setAttribute(attr, attributes[attr]);
+    });
 }
