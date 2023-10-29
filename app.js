@@ -6,6 +6,11 @@ let score = 0;
 let maxScore = q.length *3;
 let scorePercentage = 0;
 let finalScore = 0;
+//to do: create variable with data from local storage
+let nama_peserta
+let jabatan_peserta
+let nama_perusahaan
+let nomor_hp
 
 form.addEventListener('click',(e)=>{
     e.preventDefault();
@@ -48,11 +53,12 @@ function step() {
                 if (output == finalScore) {
                     clearInterval(timer);
                     axios.post('https://anthonygunardi.com:5005/register', {
-                        nama_perusahaan: nama_perusahaan.value,
-                        jumlah_peserta: jumlah_peserta,
-                        nama_peserta: nama_peserta.value,
-                        jabatan_peserta: jabatan_peserta.value,
-                        nomor_telp: nomor_telp.value
+                        nama_peserta,
+                        jabatan_peserta,
+                        nama_perusahaan,
+                        nomor_hp,
+                        skor_tes: score, // to do: add in model
+                        persentase_growthMindset: finalScore //to do: add in model
                     })
                     .then(result => {
                         const attributes = {

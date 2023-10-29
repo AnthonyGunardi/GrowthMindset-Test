@@ -130,7 +130,7 @@ h1 {
   font-size: 3em;
   text-align: center;
   color: #fff;
-  font-weight: 100;
+  font-weight: bold;
   text-transform: capitalize;
   letter-spacing: 4px;
   font-family: 'Roboto', sans-serif;
@@ -201,7 +201,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   font-family: 'Roboto', sans-serif;
 }
 
-input.nama_perusahaan, input.nama_peserta, input.jabatan_peserta, input.nama_peserta2, input.jabatan_peserta2, input.nama_peserta3, input.jabatan_peserta3, input.nomor_telp {
+input.nama_perusahaan, input.nama_peserta, input.jabatan_peserta, input.nomor_hp {
   margin: 2em 0;
 }
 
