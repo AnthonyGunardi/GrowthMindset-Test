@@ -50,7 +50,7 @@
 		</ul>
 	</div>
 	<!-- //main -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
   <script>
     let nama_peserta = document.getElementById('nama_peserta');
     let jabatan_peserta = document.getElementById('jabatan_peserta');
@@ -60,7 +60,10 @@
 
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      // to do: save data to local storage
+			localStorage.setItem('nama_peserta',nama_peserta.value);
+			localStorage.setItem('jabatan_peserta',jabatan_peserta.value);
+			localStorage.setItem('nama_perusahaan',nama_perusahaan.value);
+			localStorage.setItem('nomor_hp',nomor_hp.value);
       window.location.replace('test.html')
     })
 

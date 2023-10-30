@@ -6,11 +6,10 @@ let score = 0;
 let maxScore = q.length *3;
 let scorePercentage = 0;
 let finalScore = 0;
-//to do: create variable with data from local storage
-let nama_peserta
-let jabatan_peserta
-let nama_perusahaan
-let nomor_hp
+let nama_peserta = localStorage.getItem('nama_peserta');
+let jabatan_peserta = localStorage.getItem('jabatan_peserta');
+let nama_perusahaan = localStorage.getItem('nama_perusahaan');
+let nomor_hp = localStorage.getItem('nomor_hp');
 
 form.addEventListener('click',(e)=>{
     e.preventDefault();
@@ -47,35 +46,37 @@ function step() {
         }else{
             end.classList.remove('d-none');
             let output = 0;
-            console.log(finalScore)
             const timer = setInterval(()=>{
                 end.querySelector('span').textContent=`${output}%`;
                 if (output == finalScore) {
-                    clearInterval(timer);
-                    axios.post('https://anthonygunardi.com:5005/register', {
-                        nama_peserta,
-                        jabatan_peserta,
-                        nama_perusahaan,
-                        nomor_hp,
-                        skor_tes: score, // to do: add in model
-                        persentase_growthMindset: finalScore //to do: add in model
-                    })
-                    .then(result => {
-                        const attributes = {
-                            href: "detail.html",
-                            class: "btns"
-                        };
-                        const detailButton = document.createElement("a");
-                        setAttributes(detailButton, attributes);
-                        detailButton.innerHTML = "Details";
-                        document.getElementById("details").appendChild(detailButton);
-                    })
-                    .catch(err => console.log(err)) 
+                    clearInterval(timer); 
                 }else{
                     output++;
                 }
             },20)
         }
+    }
+    if (count == 14) {
+        localStorage.setItem('skor_tes', score);
+        axios.post('https://anthonygunardi.com:5005/register', {
+            nama_peserta,
+            jabatan_peserta,
+            nama_perusahaan,
+            nomor_hp,
+            skor_tes: score,
+            persentase_growthMindset: finalScore
+        })
+        .then(result => {
+            const attributes = {
+                href: "detail.html",
+                class: "btns"
+            };
+            const detailButton = document.createElement("a");
+            setAttributes(detailButton, attributes);
+            detailButton.innerHTML = "Details";
+            document.getElementById("details").appendChild(detailButton);
+        })
+        .catch(err => console.log(err))
     }
 }
 
