@@ -58,13 +58,34 @@ function step() {
     }
     if (count == 14) {
         localStorage.setItem('skor_tes', score);
+        let skor_tes = parseInt(score);
+        let penjelasan_skor = '';
+
+        if (skor_tes > 31) {
+            penjelasan_skor = 
+            'Anda memiliki Growth Mindset yang kuat. Itu akan membantu Anda dengan baik! Tapi Anda jangan berpuas diri. Anda dapat membantu orang lain untuk memahami kekuatan Growth Mindset. Anda mempunyai kesempatan untuk membuat perubahan besar di dunia.'
+        } 
+        else if (skor_tes >= 26 && skor_tes <= 31) {
+            penjelasan_skor = 
+            'Anda memiliki Growth Mindset dengan beberapa Fixed Mindset (Tetap berpegang teguh dengan opini anda). Anda memahami bahwa perubahan itu mungkin terjadi, jadi sekarang Anda bisa mengeksplorasi jenis perubahan apa yang mungkin terjadi yang tidak dapat Anda bayangkan sebelumnya.'
+        }
+        else if (skor_tes >= 15 && skor_tes <= 25) {
+            penjelasan_skor = 
+            'Anda memiliki Fixed Mindset dengan beberapa Growth Mindset. Ambillah ide-ide Growth Mindset yang Anda miliki. Jelajahi mengapa beberapa ide lebih intuitif bagi Anda. Kemudian teliti ilmunya. Temukan seseorang dengan Growth Mindset yang akan sangat membantu untuk membimbing Anda.'
+        }
+        else if (skor_tes < 15) {
+            penjelasan_skor = 
+            'Anda memiliki Fixed Mindset yang kuat. Sekarang Anda punya pilihan. Anda bisa tetap di tempat Anda sekarang atau Anda bisa terbuka terhadap perubahan. Sadari bahwa apa pun situasi yang Anda hadapi, Anda punya pilihan. Anda bisa belajar dari situasi tersebut dan menjadi berkembang, atau Anda bisa menolak peluang luar biasa yang ditawarkan oleh Growth Mindset.'
+        }
+
         axios.post('https://anthonygunardi.com:5005/register', {
             nama_peserta,
             jabatan_peserta,
             nama_perusahaan,
             nomor_hp,
             skor_tes: score,
-            persentase_growthMindset: finalScore
+            persentase_growthMindset: finalScore,
+            penjelasan_skor
         })
         .then(result => {
             const attributes = {

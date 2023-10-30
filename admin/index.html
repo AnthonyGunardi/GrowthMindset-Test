@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Evolve Center</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<h2 class="heading-section">DATA PESERTA EVOLVE CENTER</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-wrap">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Nama Perusahaan</th>
+										<th>Nama Peserta</th>
+										<th>Jabatan Peserta</th>
+										<th>Nomor HP</th>
+										<th>Skor Tes</th>
+										<th>Persentase Growth Mindset</th>
+										<th>Penjelasan Skor</th>
+									</tr>
+								</thead>
+								<tbody id="datas">
+									
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="js/main.js"></script>
+		<script>
+			let table = document.getElementById("datas");
+			let tableRows ="";
+			table.innerHTML="";
+
+			axios.get('https://anthonygunardi.com:5005/users')
+			.then(result => {
+				console.log(result.data)
+				let resultData = result.data;
+				resultData.forEach(ele=>{
+					tableRows +='<tr>';
+					tableRows +=
+						'<td>' + ele.nama_perusahaan+'</td>' +'<td>'+ ele.nama_peserta + '</td>' + '<td>'+ ele.jabatan_peserta + '</td>' + '<td>'+ ele.nomor_hp + '</td>' +
+						'<td>'+ ele.skor_tes + '</td>' + '<td>'+ ele.persentase_growthMindset + '</td>' + '<td>'+ ele.penjelasan_skor + '</td>'
+					tableRows +='</tr>'
+				})
+				table.innerHTML += tableRows;
+			})
+		</script>
+	</body>
+</html>
+
