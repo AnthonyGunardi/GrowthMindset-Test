@@ -6,10 +6,8 @@ let score = 0;
 let maxScore = q.length *3;
 let scorePercentage = 0;
 let finalScore = 0;
-let nama_peserta = localStorage.getItem('nama_peserta');
-let jabatan_peserta = localStorage.getItem('jabatan_peserta');
-let nama_perusahaan = localStorage.getItem('nama_perusahaan');
-let nomor_hp = localStorage.getItem('nomor_hp');
+let usia = localStorage.getItem('usia');
+let departemen = localStorage.getItem('departemen');
 
 form.addEventListener('click',(e)=>{
     e.preventDefault();
@@ -79,10 +77,8 @@ function step() {
         }
 
         axios.post('https://anthonygunardi.com:5005/register', {
-            nama_peserta,
-            jabatan_peserta,
-            nama_perusahaan,
-            nomor_hp,
+            usia,
+            departemen,
             skor_tes: score,
             persentase_growthMindset: finalScore,
             penjelasan_skor

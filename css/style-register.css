@@ -201,7 +201,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   font-family: 'Roboto', sans-serif;
 }
 
-input.nama_perusahaan, input.nama_peserta, input.jabatan_peserta, input.nomor_hp {
+input.usia, input.departemen {
   margin: 2em 0;
 }
 

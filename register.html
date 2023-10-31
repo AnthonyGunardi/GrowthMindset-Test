@@ -23,10 +23,8 @@
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 				<form id="loginForm" action="#" method="post">
-          <input class="text nama_peserta" id="nama_peserta" type="text" name="nama_peserta" placeholder="Nama Peserta" required>
-					<input class="text jabatan_peserta" id="jabatan_peserta" type="text" name="jabatan_peserta" placeholder="Jabatan Peserta" required>
-          <input class="text" id="nama_perusahaan" type="text" name="nama_perusahaan" placeholder="Nama Perusahaan" required>
-					<input class="text nomor_hp" id="nomor_hp" type="text" name="nomor_hp" placeholder="Nomor HP" required>
+          <input class="text usia" id="usia" type="text" name="usia" placeholder="Usia" required>
+					<input class="text departemen" id="departemen" type="text" name="departemen" placeholder="Departemen" required>
 					<input type="submit" value="NEXT">
 				</form>
 			</div>
@@ -52,18 +50,14 @@
 	<!-- //main -->
   
   <script>
-    let nama_peserta = document.getElementById('nama_peserta');
-    let jabatan_peserta = document.getElementById('jabatan_peserta');
-    let nama_perusahaan = document.getElementById('nama_perusahaan');
-    let nomor_hp = document.getElementById('nomor_hp');
+    let usia = document.getElementById('usia');
+    let departemen = document.getElementById('departemen');
     let loginForm = document.getElementById('loginForm');
 
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
-			localStorage.setItem('nama_peserta',nama_peserta.value);
-			localStorage.setItem('jabatan_peserta',jabatan_peserta.value);
-			localStorage.setItem('nama_perusahaan',nama_perusahaan.value);
-			localStorage.setItem('nomor_hp',nomor_hp.value);
+			localStorage.setItem('usia',usia.value);
+			localStorage.setItem('departemen',departemen.value);
       window.location.replace('test.html')
     })
 
