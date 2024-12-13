@@ -24,6 +24,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#preview">Preview</a></li>
   </ol>
 </details>
 <br>
@@ -57,5 +58,15 @@ https://ciptainsanaktif.com/growth-mindset
 * HTML5
 * CSS
 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+## Preview
+
+![Thumbnail](/assets/images/preview/Preview-1.png)
+<br>
+<br>
+![Thumbnail](/assets/images/preview/Preview-2.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
